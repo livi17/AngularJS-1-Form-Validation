@@ -7,17 +7,19 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:400,100,700,900" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="css/style.css">
   <script src="js/lib/angular/angular.min.js"></script>
+  <script src="js/app.js"></script>
 
 
 </head>
 <body>
 <div class="page">
-  <section class="card register" ng-app>
-  <form name="myform" novalidate>
+  <section class="card register" ng-app="myApp" ng-controller="RegistrationController">
+  <form name="myform" ng-submit="register()" novalidate>
 
     <div class="textintro">
       <h1>Form Validation</h1>
-      <p>Please fill out the following form</p>
+      <p ng-hide="message">Please fill out the following form</p>
+      <p ng-show="message">{{message}}</p>
       
     </div>
 
@@ -31,11 +33,11 @@
         <p class="error validationerror" ng-show="myform.lastname.$invalid  && myform.lastname.$touched">You must fill out your last name.</p>
 
       <input type="email" name="email"
-        placeholder="Email" ng-model="user.email">
+        placeholder="Email" ng-model="user.email" ng-required="true">
         <p class="error validationerror" ng-show="myform.email.$invalid  && myform.email.$touched">This must be a valid email.</p>
 
       <input type="password" name="password"
-        placeholder="Password" ng-model="user.password" ng-minlength="6">
+        placeholder="Password" ng-model="user.password" ng-minlength="6" ng-required="true">
         <p class="error validationerror" ng-show="myform.password.$invalid  && myform.password.$touched">Password must be 6 characters long.</p>
     </fieldset>
 
