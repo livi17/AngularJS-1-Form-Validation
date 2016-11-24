@@ -1,2 +1,4 @@
-# AngularJS-1-Form-Validation
-AngularJS 1: Form Validation
+# AngularJS - Form Validation
+AngularJS: Form Validation
+
+A Lynda.com course.
